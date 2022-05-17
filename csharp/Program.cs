@@ -1,9 +1,18 @@
 using System;
-using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
 
-Console.WriteLine("Hello World!");
+namespace Sample
+{
+    public class HttpTrigger
+    {
+        public static void Main(string[] args)
+        {
+        }
 
-Console.WriteLine("Args:");
-for (int i = 0; i < args.Length; i++) {
-    Console.WriteLine($"  args[{i}] = {args[i]}");
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public static string ResponseMessageTemplate(string src)
+        {
+            return $"Hello, {src}. This HTTP triggered function executed successfully.";
+        }
+    }
 }
