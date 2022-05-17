@@ -10,6 +10,7 @@ const httpTrigger: AzureFunction = async function (
   context.log("HTTP trigger function processed a request.");
   // FIXME: wasm-tools SDK 7.0.100-preview.4 is not worked...
   // MONO_WASM: Error in mono_download_assets: Error: MONO_WASM: Fetch 'supportFiles/0_runtimeconfig.bin' for supportFiles/0_runtimeconfig.bin failed
+  // But, using https://github.com/dotnet/runtime/pull/69441 patch, it would work
   const { BINDING } = await createDotnetRuntime({
     configSrc: resolve(__dirname, "../AppBundle/mono-config.json"),
   });
